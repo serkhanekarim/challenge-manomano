@@ -270,7 +270,7 @@ def preprocess_whole_pipeline(df_active_ingredients,df_feature_eng,df_drugs_trai
         data_label = data[label]
         data.drop(label, axis=1, inplace=True)
         data_preprocessed = NaN_imputation_FeatureScaling_PCA(data=data,
-                                                   imputation_strategy="mean")        
+                                                   imputation_strategy="median")        
         data = pd.concat([data_preprocessed, data_label], axis = 1)
     
     return data,data_train,data_test,drug_id  
